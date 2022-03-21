@@ -1,0 +1,65 @@
+.containerize{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.country-flag{
+    width: 150px;
+    height: 150px;
+    border-radius: 50% !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+.country-name{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.properties{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,.125) !important;
+}
+.property{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.property .property-icon{
+    font-size: 1.5rem;
+}
+.property h4{
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0;
+    margin-left: 15px;
+    padding: 0;
+}
+.values{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.values h4{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.city{
+    color: #C00505;
+}
+.currency{
+    color: #F49F1C;
+}
+.puzzle{
+    color: #000AFF;
+}
