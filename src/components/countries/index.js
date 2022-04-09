@@ -4,31 +4,37 @@ import CountryCard from "./country-card";
 import axios from "axios";
 
 export default function Countries() {
-  // Data fetch 
-  useEffect( () => {
+  var names = ["Kwaku", "Aba"];
+  for (var i = 0; i < names.length; i++) {
+    console.log(names[i]);
+  }
+
+  // API KEY - f5ee74f725fc90e2ce5ae10315c06a42
+  // Countries Data fetch
+  useEffect(() => {
     const fetchCountries = () => {
-      var options = {
-        method: "GET",
-        url: "https://wft-geo-db.p.rapidapi.com/v1/geo/countries",
+      const url = "https://api.countrylayer.com/v2/all";
+
+      const config = {
         headers: {
-          "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-          "x-rapidapi-key":
-            "99b4bdad24msh7cfd8730f2d7f32p13be94jsn57aac7cab2c1",
+          "Content-Type": "application/json",
         },
       };
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data);
+
+      // Add baseURL
+      axios.defaults.baseURL = "https://api.countrylayer.com/v2/all";
+      // Add Your Key Here!!!
+      axios.defaults.headers.common["Authorization"] = "f5ee74f725fc90e2ce5ae10315c06a42";
+
+      axios({ method: "get", url: url, config })
+        .then((res) => {
+          console.log(res.data);
         })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
-    fetchCountries()
-  }
-  ,[])
-// Data fetch
+        .catch((err) => console.err("Theres an error somewhere" + err));
+    };
+    fetchCountries();
+  }, []);
+
   return (
     <Container>
       <Row>
